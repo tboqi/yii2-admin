@@ -1,7 +1,5 @@
 <?php
 
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
@@ -19,28 +17,10 @@ $this->registerCssFile($url . '/main.css');
         <?=Html::csrfMetaTags();?>
         <title><?=Html::encode($this->title);?></title>
         <?php $this->head();?>
+        <link href="/assets/a5b2355c/css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
         <?php $this->beginBody();?>
-        <?php
-NavBar::begin([
-    'brandLabel' => false,
-    'options' => ['class' => 'navbar-inverse navbar-fixed-top'],
-]);
-
-if (!empty($this->params['top-menu']) && isset($this->params['nav-items'])) {
-    echo Nav::widget([
-        'options' => ['class' => 'nav navbar-nav'],
-        'items' => $this->params['nav-items'],
-    ]);
-}
-
-echo Nav::widget([
-    'options' => ['class' => 'nav navbar-nav navbar-right'],
-    'items' => $this->context->module->navbar,
-]);
-NavBar::end();
-?>
 
         <div class="container">
             <?=$content;?>

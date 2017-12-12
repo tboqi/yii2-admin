@@ -9,6 +9,7 @@ class SiteController extends Controller
 {
     public function actionMain()
     {
+        $this->layout = false;
         return $this->render('//admin/site/main.tpl', [
             'url' => [
                 'static' => '/statics/',
