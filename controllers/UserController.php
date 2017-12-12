@@ -1,22 +1,22 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\form\ChangePassword;
+use app\modules\admin\models\form\Login;
+use app\modules\admin\models\form\PasswordResetRequest;
+use app\modules\admin\models\form\ResetPassword;
+use app\modules\admin\models\form\Signup;
+use app\modules\admin\models\searchs\User as UserSearch;
+use app\modules\admin\models\User;
 use Yii;
-use mdm\admin\models\form\Login;
-use mdm\admin\models\form\PasswordResetRequest;
-use mdm\admin\models\form\ResetPassword;
-use mdm\admin\models\form\Signup;
-use mdm\admin\models\form\ChangePassword;
-use mdm\admin\models\User;
-use mdm\admin\models\searchs\User as UserSearch;
 use yii\base\InvalidParamException;
+use yii\base\UserException;
+use yii\filters\VerbFilter;
+use yii\mail\BaseMailer;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
-use yii\base\UserException;
-use yii\mail\BaseMailer;
 
 /**
  * User controller
@@ -51,7 +51,7 @@ class UserController extends Controller
             if (Yii::$app->has('mailer') && ($mailer = Yii::$app->getMailer()) instanceof BaseMailer) {
                 /* @var $mailer BaseMailer */
                 $this->_oldMailPath = $mailer->getViewPath();
-                $mailer->setViewPath('@mdm/admin/mail');
+                $mailer->setViewPath('@app/modules/admin/mail');
             }
             return true;
         }
@@ -79,8 +79,8 @@ class UserController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -92,7 +92,7 @@ class UserController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-                'model' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -124,7 +124,7 @@ class UserController extends Controller
             return $this->goBack();
         } else {
             return $this->render('login', [
-                    'model' => $model,
+                'model' => $model,
             ]);
         }
     }
@@ -154,7 +154,7 @@ class UserController extends Controller
         }
 
         return $this->render('signup', [
-                'model' => $model,
+            'model' => $model,
         ]);
     }
 
@@ -176,7 +176,7 @@ class UserController extends Controller
         }
 
         return $this->render('requestPasswordResetToken', [
-                'model' => $model,
+            'model' => $model,
         ]);
     }
 
@@ -199,7 +199,7 @@ class UserController extends Controller
         }
 
         return $this->render('resetPassword', [
-                'model' => $model,
+            'model' => $model,
         ]);
     }
 
@@ -215,7 +215,7 @@ class UserController extends Controller
         }
 
         return $this->render('change-password', [
-                'model' => $model,
+            'model' => $model,
         ]);
     }
 

@@ -41,7 +41,7 @@ The code below shows how to use ACF which is implemented as `mdm\admin\component
 
 ```php
 'as access' => [
-    'class' => 'mdm\admin\components\AccessControl',
+    'class' => 'app\modules\admin\components\AccessControl',
     'allowActions' => [
         'site/login',
         'site/error',

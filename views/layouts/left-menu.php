@@ -13,29 +13,29 @@ foreach ($menus as $i => $menu) {
 }
 $this->params['nav-items'] = $menus;
 ?>
-<?php $this->beginContent($controller->module->mainLayout) ?>
+<?php $this->beginContent($controller->module->mainLayout);?>
 <div class="row">
     <div class="col-sm-3">
         <div id="manager-menu" class="list-group">
             <?php
-            foreach ($menus as $menu) {
-                $label = Html::tag('i', '', ['class' => 'glyphicon glyphicon-chevron-right pull-right']) .
-                    Html::tag('span', Html::encode($menu['label']), []);
-                $active = $menu['active'] ? ' active' : '';
-                echo Html::a($label, $menu['url'], [
-                    'class' => 'list-group-item' . $active,
-                ]);
-            }
-            ?>
+foreach ($menus as $menu) {
+    $label = Html::tag('i', '', ['class' => 'glyphicon glyphicon-chevron-right pull-right']) .
+    Html::tag('span', Html::encode($menu['label']), []);
+    $active = $menu['active'] ? ' active' : '';
+    echo Html::a($label, $menu['url'], [
+        'class' => 'list-group-item' . $active,
+    ]);
+}
+?>
         </div>
     </div>
     <div class="col-sm-9">
-        <?= $content ?>
+        <?=$content;?>
     </div>
 </div>
 <?php
-list(, $url) = Yii::$app->assetManager->publish('@mdm/admin/assets');
+list(, $url) = Yii::$app->assetManager->publish('@app/modules/admin/assets');
 $this->registerCssFile($url . '/list-item.css');
 ?>
 
-<?php $this->endContent(); ?>
+<?php $this->endContent();?>

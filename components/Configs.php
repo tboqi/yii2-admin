@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\admin\components;
+namespace app\modules\admin\components;
 
 use Yii;
 use yii\caching\Cache;
@@ -16,7 +16,7 @@ use yii\rbac\ManagerInterface;
  * ```
  * return [
  *
- *     'mdm.admin.configs' => [
+ *     'app.modules.admin.configs' => [
  *         'db' => 'customDb',
  *         'menuTable' => '{{%admin_menu}}',
  *         'cache' => [
@@ -30,7 +30,7 @@ use yii\rbac\ManagerInterface;
  * or use [[\Yii::$container]]
  *
  * ```
- * Yii::$container->set('mdm\admin\components\Configs',[
+ * Yii::$container->set('app\modules\admin\components\Configs',[
  *     'db' => 'customDb',
  *     'menuTable' => 'admin_menu',
  * ]);
@@ -40,9 +40,9 @@ use yii\rbac\ManagerInterface;
  * @since 1.0
  */
 
-class Configs extends \mdm\admin\BaseObject
+class Configs extends \app\modules\admin\BaseObject
 {
-    const CACHE_TAG = 'mdm.admin';
+    const CACHE_TAG = 'app.modules.admin';
 
     /**
      * @var ManagerInterface .

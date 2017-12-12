@@ -1,14 +1,14 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace app\modules\admin\controllers;
 
+use app\modules\admin\components\Helper;
+use app\modules\admin\models\Menu;
+use app\modules\admin\models\searchs\Menu as MenuSearch;
 use Yii;
-use mdm\admin\models\Menu;
-use mdm\admin\models\searchs\Menu as MenuSearch;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use mdm\admin\components\Helper;
 
 /**
  * MenuController implements the CRUD actions for Menu model.
@@ -44,8 +44,8 @@ class MenuController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
-                'dataProvider' => $dataProvider,
-                'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -57,7 +57,7 @@ class MenuController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-                'model' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -75,7 +75,7 @@ class MenuController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                    'model' => $model,
+                'model' => $model,
             ]);
         }
     }
@@ -97,7 +97,7 @@ class MenuController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                    'model' => $model,
+                'model' => $model,
             ]);
         }
     }

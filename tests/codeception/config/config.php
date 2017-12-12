@@ -8,12 +8,12 @@ return [
     'vendorPath' => dirname(dirname(dirname(__DIR__))) . '/vendor',
     'language' => 'en-US',
     'aliases' => [
-        '@mdm/admin' => dirname(dirname(dirname(__DIR__))),
+        '@app/modules/admin' => dirname(dirname(dirname(__DIR__))),
     ],
     'modules' => [
         'admin' => [
-            'class' => 'mdm\admin\Module',
-        ]
+            'class' => 'app\modules\admin\Module',
+        ],
     ],
     'controllerMap' => [
         'fixture' => [
@@ -22,7 +22,7 @@ return [
         ],
     ],
     'components' => [
-        'db' => require(__DIR__ . '/db.php'),
+        'db' => require __DIR__ . '/db.php',
         'mailer' => [
             'useFileTransport' => true,
         ],
@@ -30,7 +30,7 @@ return [
             'showScriptName' => true,
         ],
         'authManager' => [
-            'class' => 'yii\rbac\DbManager'
+            'class' => 'yii\rbac\DbManager',
         ],
         'cache' => [
             'class' => 'yii\caching\DummyCache',
@@ -40,9 +40,9 @@ return [
                 'rbac-admin' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'sourceLanguage' => 'en',
-                    'basePath' => '@mdm/admin/messages'
-                ]
-            ]
-        ]
+                    'basePath' => '@app/modules/admin/messages',
+                ],
+            ],
+        ],
     ],
 ];

@@ -1,10 +1,10 @@
 <?php
 
-use mdm\admin\components\Configs;
+use app\modules\admin\components\Configs;
 
 /**
  * Migration table of table_menu
- * 
+ *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */

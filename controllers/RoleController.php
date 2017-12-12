@@ -1,8 +1,8 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace app\modules\admin\controllers;
 
-use mdm\admin\components\ItemController;
+use app\modules\admin\components\ItemController;
 use yii\rbac\Item;
 
 /**
@@ -18,7 +18,7 @@ class RoleController extends ItemController
      */
     public function labels()
     {
-        return[
+        return [
             'Item' => 'Role',
             'Items' => 'Roles',
         ];

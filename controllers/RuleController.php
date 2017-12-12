@@ -1,15 +1,15 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace app\modules\admin\controllers;
 
+use app\modules\admin\components\Configs;
+use app\modules\admin\components\Helper;
+use app\modules\admin\models\BizRule;
+use app\modules\admin\models\searchs\BizRule as BizRuleSearch;
 use Yii;
-use mdm\admin\models\BizRule;
-use yii\web\Controller;
-use mdm\admin\models\searchs\BizRule as BizRuleSearch;
 use yii\filters\VerbFilter;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use mdm\admin\components\Helper;
-use mdm\admin\components\Configs;
 
 /**
  * Description of RuleController
@@ -45,8 +45,8 @@ class RuleController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
-                'dataProvider' => $dataProvider,
-                'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -75,7 +75,7 @@ class RuleController extends Controller
 
             return $this->redirect(['view', 'id' => $model->name]);
         } else {
-            return $this->render('create', ['model' => $model,]);
+            return $this->render('create', ['model' => $model]);
         }
     }
 
@@ -94,7 +94,7 @@ class RuleController extends Controller
             return $this->redirect(['view', 'id' => $model->name]);
         }
 
-        return $this->render('update', ['model' => $model,]);
+        return $this->render('update', ['model' => $model]);
     }
 
     /**

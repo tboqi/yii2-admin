@@ -1,15 +1,15 @@
 <?php
 
-namespace mdm\admin\models\searchs;
+namespace app\modules\admin\models\searchs;
 
+use app\modules\admin\models\Menu as MenuModel;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use mdm\admin\models\Menu as MenuModel;
 
 /**
- * Menu represents the model behind the search form about [[\mdm\admin\models\Menu]].
- * 
+ * Menu represents the model behind the search form about [[\app\modules\admin\models\Menu]].
+ *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
@@ -46,11 +46,11 @@ class Menu extends MenuModel
         $query = MenuModel::find()
             ->from(MenuModel::tableName() . ' t')
             ->joinWith(['menuParent' => function ($q) {
-            $q->from(MenuModel::tableName() . ' parent');
-        }]);
+                $q->from(MenuModel::tableName() . ' parent');
+            }]);
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query
+            'query' => $query,
         ]);
 
         $sort = $dataProvider->getSort();

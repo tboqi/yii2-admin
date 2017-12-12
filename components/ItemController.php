@@ -1,22 +1,22 @@
 <?php
 
-namespace mdm\admin\components;
+namespace app\modules\admin\components;
 
+use app\modules\admin\models\AuthItem;
+use app\modules\admin\models\searchs\AuthItem as AuthItemSearch;
 use Yii;
-use mdm\admin\models\AuthItem;
-use mdm\admin\models\searchs\AuthItem as AuthItemSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\base\NotSupportedException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 /**
  * AuthItemController implements the CRUD actions for AuthItem model.
  *
  * @property integer $type
  * @property array $labels
- * 
+ *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
@@ -167,7 +167,7 @@ class ItemController extends Controller
      */
     public function getType()
     {
-        
+
     }
 
     /**

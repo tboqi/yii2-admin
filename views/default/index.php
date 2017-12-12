@@ -1,6 +1,5 @@
 <?php
 
-use yii\web\View;
 use yii\helpers\Markdown;
 use yii\helpers\Url;
 
@@ -22,12 +21,12 @@ if ($page == 'README.md') {
         $url = Url::to($menu['url'], true);
         $links[] = "[**{$menu['label']}**]({$url})";
     }
-    $body = str_replace(':smile:.', ".\n\n" . implode('  ', $links) . "\n", file_get_contents(Url::to('@mdm/admin/README.md')));
+    $body = str_replace(':smile:.', ".\n\n" . implode('  ', $links) . "\n", file_get_contents(Url::to('@app/modules/admin/README.md')));
 } else {
-    $body = file_get_contents(Url::to("@mdm/admin/{$page}"));
+    $body = file_get_contents(Url::to("@app/modules/admin/{$page}"));
 }
 
-$body = preg_replace_callback('/\]\((.*?)\)/', function($matches) use($baseDir) {
+$body = preg_replace_callback('/\]\((.*?)\)/', function ($matches) use ($baseDir) {
     $link = $matches[1];
     if (strpos($link, '://') === false) {
         if ($link[0] == '/') {

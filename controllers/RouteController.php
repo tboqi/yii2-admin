@@ -1,11 +1,11 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Route;
 use Yii;
-use mdm\admin\models\Route;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\web\Controller;
 
 /**
  * Description of RuleController

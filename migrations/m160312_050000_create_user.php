@@ -1,7 +1,7 @@
 <?php
 
+use app\modules\admin\components\Configs;
 use yii\db\Migration;
-use mdm\admin\components\Configs;
 
 class m160312_050000_create_user extends Migration
 {
@@ -29,7 +29,7 @@ class m160312_050000_create_user extends Migration
                 'status' => $this->smallInteger()->notNull()->defaultValue(10),
                 'created_at' => $this->integer()->notNull(),
                 'updated_at' => $this->integer()->notNull(),
-                ], $tableOptions);
+            ], $tableOptions);
         }
     }
 

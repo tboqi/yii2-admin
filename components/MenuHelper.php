@@ -1,26 +1,26 @@
 <?php
 
-namespace mdm\admin\components;
+namespace app\modules\admin\components;
 
+use app\modules\admin\models\Menu;
 use Yii;
 use yii\caching\TagDependency;
-use mdm\admin\models\Menu;
 
 /**
  * MenuHelper used to generate menu depend of user role.
  * Usage
- * 
+ *
  * ```
- * use mdm\admin\components\MenuHelper;
+ * use app\modules\admin\components\MenuHelper;
  * use yii\bootstrap\Nav;
  *
  * echo Nav::widget([
  *    'items' => MenuHelper::getAssignedMenu(Yii::$app->user->id)
  * ]);
  * ```
- * 
+ *
  * To reformat returned, provide callback to method.
- * 
+ *
  * ```
  * $callback = function ($menu) {
  *    $data = eval($menu['data']);
@@ -47,7 +47,7 @@ class MenuHelper
      * @param integer $root
      * @param \Closure $callback use to reformat output.
      * callback should have format like
-     * 
+     *
      * ```
      * function ($menu) {
      *    return [
@@ -121,7 +121,7 @@ class MenuHelper
             $assigned = static::requiredParent($assigned, $menus);
             if ($cache !== null) {
                 $cache->set($key, $assigned, $config->cacheDuration, new TagDependency([
-                    'tags' => Configs::CACHE_TAG
+                    'tags' => Configs::CACHE_TAG,
                 ]));
             }
         }
@@ -131,7 +131,7 @@ class MenuHelper
             $result = static::normalizeMenu($assigned, $menus, $callback, $root);
             if ($cache !== null && $callback === null) {
                 $cache->set($key, $result, $config->cacheDuration, new TagDependency([
-                    'tags' => Configs::CACHE_TAG
+                    'tags' => Configs::CACHE_TAG,
                 ]));
             }
         }

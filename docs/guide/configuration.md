@@ -20,7 +20,7 @@ return [
         ]
     ],
     'as access' => [
-        'class' => 'mdm\admin\components\AccessControl',
+        'class' => 'app\modules\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
             'admin/*',

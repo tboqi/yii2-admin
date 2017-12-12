@@ -1,13 +1,13 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Assignment;
+use app\modules\admin\models\searchs\Assignment as AssignmentSearch;
 use Yii;
-use mdm\admin\models\Assignment;
-use mdm\admin\models\searchs\Assignment as AssignmentSearch;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * AssignmentController implements the CRUD actions for Assignment model.
@@ -32,7 +32,7 @@ class AssignmentController extends Controller
         parent::init();
         if ($this->userClassName === null) {
             $this->userClassName = Yii::$app->getUser()->identityClass;
-            $this->userClassName = $this->userClassName ? : 'mdm\admin\models\User';
+            $this->userClassName = $this->userClassName ?: 'app\modules\admin\models\User';
         }
     }
 
@@ -70,11 +70,11 @@ class AssignmentController extends Controller
         }
 
         return $this->render('index', [
-                'dataProvider' => $dataProvider,
-                'searchModel' => $searchModel,
-                'idField' => $this->idField,
-                'usernameField' => $this->usernameField,
-                'extraColumns' => $this->extraColumns,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+            'idField' => $this->idField,
+            'usernameField' => $this->usernameField,
+            'extraColumns' => $this->extraColumns,
         ]);
     }
 
@@ -88,10 +88,10 @@ class AssignmentController extends Controller
         $model = $this->findModel($id);
 
         return $this->render('view', [
-                'model' => $model,
-                'idField' => $this->idField,
-                'usernameField' => $this->usernameField,
-                'fullnameField' => $this->fullnameField,
+            'model' => $model,
+            'idField' => $this->idField,
+            'usernameField' => $this->usernameField,
+            'fullnameField' => $this->fullnameField,
         ]);
     }
 

@@ -1,12 +1,12 @@
 <?php
 
-use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $searchModel mdm\admin\models\searchs\Assignment */
+/* @var $searchModel app\modules\admin\models\searchs\Assignment */
 /* @var $usernameField string */
 /* @var $extraColumns string[] */
 
@@ -22,21 +22,21 @@ if (!empty($extraColumns)) {
 }
 $columns[] = [
     'class' => 'yii\grid\ActionColumn',
-    'template' => '{view}'
+    'template' => '{view}',
 ];
 ?>
 <div class="assignment-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?=Html::encode($this->title);?></h1>
 
-    <?php Pjax::begin(); ?>
+    <?php Pjax::begin();?>
     <?=
-    GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => $columns,
-    ]);
-    ?>
-    <?php Pjax::end(); ?>
+GridView::widget([
+    'dataProvider' => $dataProvider,
+    'filterModel' => $searchModel,
+    'columns' => $columns,
+]);
+?>
+    <?php Pjax::end();?>
 
 </div>

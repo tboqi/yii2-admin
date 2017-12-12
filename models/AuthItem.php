@@ -1,9 +1,9 @@
 <?php
 
-namespace mdm\admin\models;
+namespace app\modules\admin\models;
 
-use mdm\admin\components\Configs;
-use mdm\admin\components\Helper;
+use app\modules\admin\components\Configs;
+use app\modules\admin\components\Helper;
 use Yii;
 use yii\base\Model;
 use yii\helpers\Json;

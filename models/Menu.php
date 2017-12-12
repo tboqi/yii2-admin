@@ -1,9 +1,9 @@
 <?php
 
-namespace mdm\admin\models;
+namespace app\modules\admin\models;
 
+use app\modules\admin\components\Configs;
 use Yii;
-use mdm\admin\components\Configs;
 use yii\db\Query;
 
 /**
@@ -57,13 +57,13 @@ class Menu extends \yii\db\ActiveRecord
                 'range' => static::find()->select(['name'])->column(),
                 'message' => 'Menu "{value}" not found.'],
             [['parent', 'route', 'data', 'order'], 'default'],
-            [['parent'], 'filterParent', 'when' => function() {
+            [['parent'], 'filterParent', 'when' => function () {
                 return !$this->isNewRecord;
             }],
             [['order'], 'integer'],
             [['route'], 'in',
                 'range' => static::getSavedRoutes(),
-                'message' => 'Route "{value}" not found.']
+                'message' => 'Route "{value}" not found.'],
         ];
     }
 
@@ -142,9 +142,9 @@ class Menu extends \yii\db\ActiveRecord
     {
         $tableName = static::tableName();
         return (new \yii\db\Query())
-                ->select(['m.id', 'm.name', 'm.route', 'parent_name' => 'p.name'])
-                ->from(['m' => $tableName])
-                ->leftJoin(['p' => $tableName], '[[m.parent]]=[[p.id]]')
-                ->all(static::getDb());
+            ->select(['m.id', 'm.name', 'm.route', 'parent_name' => 'p.name'])
+            ->from(['m' => $tableName])
+            ->leftJoin(['p' => $tableName], '[[m.parent]]=[[p.id]]')
+            ->all(static::getDb());
     }
 }

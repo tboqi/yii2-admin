@@ -1,11 +1,11 @@
 <?php
 
-namespace mdm\admin\models;
+namespace app\modules\admin\models;
 
+use app\modules\admin\components\Configs;
+use app\modules\admin\components\Helper;
+use app\modules\admin\components\RouteRule;
 use Exception;
-use mdm\admin\components\Configs;
-use mdm\admin\components\Helper;
-use mdm\admin\components\RouteRule;
 use Yii;
 use yii\caching\TagDependency;
 use yii\helpers\VarDumper;
@@ -16,9 +16,9 @@ use yii\helpers\VarDumper;
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
-class Route extends \mdm\admin\BaseObject
+class Route extends \app\modules\admin\BaseObject
 {
-    const CACHE_TAG = 'mdm.admin.route';
+    const CACHE_TAG = 'app.modules.admin.route';
 
     const PREFIX_ADVANCED = '@';
     const PREFIX_BASIC = '/';

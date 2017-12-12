@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var mdm\admin\models\searchs\Menu $model
+ * @var app\modules\admin\models\searchs\Menu $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>
@@ -13,25 +13,25 @@ use yii\widgets\ActiveForm;
 <div class="menu-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
-        'method' => 'get',
-    ]); ?>
+    'action' => ['index'],
+    'method' => 'get',
+]);?>
 
-    <?= $form->field($model, 'id') ?>
+    <?=$form->field($model, 'id');?>
 
-    <?= $form->field($model, 'name') ?>
+    <?=$form->field($model, 'name');?>
 
-    <?= $form->field($model, 'parent') ?>
+    <?=$form->field($model, 'parent');?>
 
-    <?= $form->field($model, 'route') ?>
+    <?=$form->field($model, 'route');?>
 
-    <?= $form->field($model, 'data') ?>
+    <?=$form->field($model, 'data');?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('rbac-admin', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('rbac-admin', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?=Html::submitButton(Yii::t('rbac-admin', 'Search'), ['class' => 'btn btn-primary']);?>
+        <?=Html::resetButton(Yii::t('rbac-admin', 'Reset'), ['class' => 'btn btn-default']);?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end();?>
 
 </div>

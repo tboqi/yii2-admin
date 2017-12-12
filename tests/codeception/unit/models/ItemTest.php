@@ -2,10 +2,9 @@
 
 namespace tests\codeception\unit\models;
 
-use Yii;
-use tests\codeception\unit\TestCase;
+use app\modules\admin\models\AuthItem;
 use Codeception\Specify;
-use mdm\admin\models\AuthItem;
+use tests\codeception\unit\TestCase;
 
 class ItemTest extends TestCase
 {
@@ -21,7 +20,6 @@ class ItemTest extends TestCase
         // required
         $this->assertFalse($model->validate());
 
-
         $model = new AuthItem();
         $model->attributes = [
             'name' => 'Tester',
@@ -30,7 +28,6 @@ class ItemTest extends TestCase
         $this->assertTrue($model->validate());
         $model->save();
 
-        
         $model = new AuthItem();
         $model->attributes = [
             'name' => 'Tester',

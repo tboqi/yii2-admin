@@ -1,13 +1,13 @@
 <?php
 
-namespace mdm\admin\models\searchs;
+namespace app\modules\admin\models\searchs;
 
+use app\modules\admin\components\Configs;
+use app\modules\admin\components\RouteRule;
+use app\modules\admin\models\BizRule as MBizRule;
 use Yii;
 use yii\base\Model;
 use yii\data\ArrayDataProvider;
-use mdm\admin\models\BizRule as MBizRule;
-use mdm\admin\components\RouteRule;
-use mdm\admin\components\Configs;
 
 /**
  * Description of BizRule
@@ -25,7 +25,7 @@ class BizRule extends Model
     public function rules()
     {
         return [
-            [['name'], 'safe']
+            [['name'], 'safe'],
         ];
     }
 
