@@ -7,7 +7,16 @@ use yii\web\Controller;
 
 class SiteController extends Controller
 {
-    $layout = false;
+
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            $this->layout = false;
+            return true;
+        }
+
+        return false;
+    }
     public function actionMain()
     {
         return $this->render('//admin/site/main.tpl', [
@@ -19,9 +28,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $menu = MenuHelper::getAssignedMenu(Yii::$app->user->id);
-        // var_dump($menu);exit;
-        $userId = Yii::$app->user->identity->getId();
+        $userId = Yii::$app->user->id;
+        $menu = MenuHelper::getAssignedMenu($userId);
         $userInfo = Yii::$app->authManager->getRolesByUser($userId);
         // var_dump($userInfo);exit;
 
@@ -32,7 +40,7 @@ class SiteController extends Controller
             'menu' => $menu,
             'userInfo' => [
                 'role' => key($userInfo),
-                'id' => Yii::$app->user->identity->getId(),
+                'id' => $userId,
                 'name' => Yii::$app->user->identity->username,
             ],
         ]);
