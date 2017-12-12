@@ -7,9 +7,9 @@ use yii\web\Controller;
 
 class SiteController extends Controller
 {
+    $layout = false;
     public function actionMain()
     {
-        $this->layout = false;
         return $this->render('//admin/site/main.tpl', [
             'url' => [
                 'static' => '/statics/',
@@ -19,7 +19,6 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $this->layout = false;
         $menu = MenuHelper::getAssignedMenu(Yii::$app->user->id);
         // var_dump($menu);exit;
         $userId = Yii::$app->user->identity->getId();
