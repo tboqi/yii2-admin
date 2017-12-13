@@ -16,7 +16,7 @@ use yii\web\NotFoundHttpException;
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
-class MenuController extends Controller
+class MenuController extends \app\libs\AdminModuleController
 {
 
     /**

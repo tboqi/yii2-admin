@@ -21,7 +21,7 @@ use yii\web\NotFoundHttpException;
 /**
  * User controller
  */
-class UserController extends Controller
+class UserController extends \app\libs\AdminModuleController
 {
     private $_oldMailPath;
 

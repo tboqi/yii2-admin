@@ -15,7 +15,7 @@ use yii\web\NotFoundHttpException;
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
-class AssignmentController extends Controller
+class AssignmentController extends \app\libs\AdminModuleController
 {
     public $userClassName;
     public $idField = 'id';

@@ -20,7 +20,7 @@ use yii\web\NotFoundHttpException;
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
-class ItemController extends Controller
+class ItemController extends \app\libs\AdminModuleController
 {
 
     /**
