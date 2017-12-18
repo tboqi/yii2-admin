@@ -9,7 +9,7 @@ class SiteController extends \app\libs\AdminController
 
     public function actionMain()
     {
-        return $this->render('//admin/site/main.tpl', [
+        return $this->render('//modules/admin/site/main.tpl', [
             'url' => [
                 'static' => '/statics/',
             ],
@@ -23,7 +23,7 @@ class SiteController extends \app\libs\AdminController
         $userInfo = Yii::$app->authManager->getRolesByUser($userId);
         // var_dump($userInfo);exit;
 
-        return $this->render('//admin/site/index.tpl', [
+        return $this->render('//modules/admin/site/index.tpl', [
             'url' => [
                 'static' => '/statics/',
             ],
